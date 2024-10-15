@@ -6,13 +6,13 @@
 /*   By: edalexan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 14:44:37 by edalexan          #+#    #+#             */
-/*   Updated: 2024/10/15 15:09:59 by edalexan         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:18:59 by edalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-/*pra imprimir*/
+/*to print*/
 int	ft_putstr(char *str)
 {
 	int	i;
@@ -28,6 +28,7 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
+/*main function*/
 int	main(int ac, char **av)
 {
 	ft_putstr(av[1]);
