@@ -6,12 +6,13 @@
 /*   By: edalexan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 14:44:37 by edalexan          #+#    #+#             */
-/*   Updated: 2024/10/15 14:48:55 by edalexan         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:09:59 by edalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
+/*pra imprimir*/
 int	ft_putstr(char *str)
 {
 	int	i;
