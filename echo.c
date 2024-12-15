@@ -27,14 +27,22 @@ void	echo_helper(int	i, char **arg)
 
 void	echo(char **arg)
 {
-	if (ft_strcmp(arg[1], "-n") == 0)
+	int i;
+	int no_newline;
+
+	i = 1;
+	no_newline = 0;
+	while (arg[i] && strncmp(arg[i], "-n", 2) == 0)
 	{
-		echo_helper(2, arg);
-		printf("%%\n");
+		int j = 1;
+		while (arg[i][j] == 'n')
+			j++;
+		if (arg[i][j] != '\0')
+			break;
+		no_newline = 1;
+		i++;
 	}
-	else
-	{
-		echo_helper(1, arg);
+	echo_helper(i, arg);
+	if (!no_newline)
 		printf("\n");
-	}
 }

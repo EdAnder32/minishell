@@ -12,7 +12,19 @@
 
 #include "minishell.h"
 
-char    *find_path_for_command(char *command)
+void    free_strings(char **matrix)
+{
+    int i;
+
+    i = 0;
+    if (!matrix)
+        return ;
+    while (matrix[i])
+        free(matrix[i++]);
+    free(matrix);
+}
+
+char    *build_path_for_command(char *command)
 {
     char    *path;
     char    **new_path;
@@ -20,15 +32,24 @@ char    *find_path_for_command(char *command)
     int         i;
 
     i = -1;
-    path = getenv(command);
+    path = getenv("PATH");
     if (!path)
         return (NULL);
     new_path = ft_split(path, ':');
     while (new_path[++i])
     {
-
+        full_path = malloc(ft_strlen(new_path[i])  + ft_strlen(command) + 2);
+        ft_strcpy(full_path, new_path[i]);
+        ft_strcat(full_path, "/");
+        ft_strcat(full_path, command);
+        if (access(full_path, X_OK) == 0)
+        {
+            free_strings(new_path);
+            return (full_path);
+        }
+        free(full_path);
     }
-    free(new_path);
+    free_strings(new_path);
     return (NULL);
 }
 
@@ -64,5 +85,5 @@ void    pipes(void)
     close(pipes[0]);
     close(pipes[1]);
     wait(NULL);
-    wait(NULL)
+    wait(NULL);
 }

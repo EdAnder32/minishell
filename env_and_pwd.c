@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   env_and_pwd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edalexan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 15:28:05 by edalexan          #+#    #+#             */
-/*   Updated: 2024/05/19 14:00:05 by edalexan         ###   ########.fr       */
+/*   Created: 2024/12/11 17:58:51 by edalexan          #+#    #+#             */
+/*   Updated: 2024/12/11 17:59:18 by edalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_env(char **env)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	if (!size)
-		return (ft_strlen(src));
-	while (src[i] != '\0' && i < size - 1)
+	while (env[i])
 	{
-		dst[i] = src[i];
+		printf("%s\n", env[i]);
 		i++;
 	}
-	dst[i] = '\0';
-	return (ft_strlen(src));
+}
+
+void	ft_pwd(void)
+{
+	char	path[4096];
+
+	getcwd(path, 4096);
+	printf("%s\n", path);
 }

@@ -5,6 +5,8 @@ files = ft_strlen \
         ft_memcpy \
         ft_strlcpy \
         ft_strlcat \
+        ft_strcpy \
+        ft_strcat \
         ft_isalpha \
         ft_isdigit \
         ft_isalnum \

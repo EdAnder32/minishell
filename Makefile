@@ -18,6 +18,8 @@ SRCS= minishell.c \
 	utils.c \
 	cd.c \
 	echo.c \
+	export.c \
+	env_and_pwd.c \
 	process_command.c \
 	pipes.c \
 	

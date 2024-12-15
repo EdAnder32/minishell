@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <sys/wait.h>
 
 //Ex for tokens type:
 //'1' for command;
@@ -34,7 +35,10 @@ typedef struct s_token
 /*built in */
 void	ft_echo(char **arg);
 void	ft_cd(t_tokens *token_list);
+void	ft_pwd(void);
+void	ft_env(char **envp);
 
+void	free_matrix(char **matrix);
 int     ft_strcmp(char *s1, char *s2);
 char    *ft_strstr(char *s1, char *s2);
 char    **ft_split(char const *s, char c);
@@ -45,4 +49,5 @@ char	*verifying_env_variables(char *command);
 void    process_input(char *command, t_tokens **token_list);
 void    process_string_to_token(char *command, t_tokens **token_list);
 void    print_list(t_tokens *list);
+char    *build_path_for_command(char *command);
 #endif

@@ -26,13 +26,12 @@ char	*verifying_env_variables(char *command)
 	return (command);
 }
 
-char	*remove_quotes(char *str)
+char *remove_quotes(char *str)
 {
-	if ((!str || str[0] != '"' || str[ft_strlen(str) -1] != '"')
-		&& (str[0] != 39 || str[ft_strlen(str) -1] != 39))
-		return (str);
-	str[ft_strlen(str) -1] = '\0';
-	return (str + 1);
+	if (!str || str[0] != '"' || str[strlen(str) - 1] != '"')
+		return str;
+	str[strlen(str) - 1] = '\0';
+	return str + 1;
 }
 
 void	cd(char *command)
